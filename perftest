@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require_relative 'libs/application'
+
+# start application
+PerfTest::Application.run ARGV
