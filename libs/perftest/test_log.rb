@@ -1,20 +1,4 @@
 module PerfTest
-
-  class LogContent
-
-    def initialize
-      @output = ''
-    end
-
-    def <<(value)
-      @output << "\n#{value}\n"
-    end
-
-    def to_s
-      @output
-    end
-  end
-
   class TestLog
 
     def initialize(opts)

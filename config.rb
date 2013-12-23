@@ -1,14 +1,15 @@
 module PerfTest
   module Config
-
-    URL = 'http://test-pbrazdil.rhcloud.com/'
-
     OPENSHIFT_APP_NAME = 'test'
+    OPENSHIFT_DOMAIN = 'pbrazdil'
+    OPENSHIFT_SERVER = 'rhcloud.com' # OpenShift Online
 
-    # unixtime - action name - custom comment
+    URL = "http://#{OPENSHIFT_APP_NAME}-#{OPENSHIFT_DOMAIN}.#{OPENSHIFT_SERVER}/"
+
+    # FORMAT: unixtime - action name - settings - custom comment
     LOG_DIR = 'results/%s-%s-%sc%sn%sd-%s'
 
-    # server name
+    # FORMAT: server name
     LOG_FILE = '%s'
 
     SERVERS = %w{ puma passenger thin unicorn }

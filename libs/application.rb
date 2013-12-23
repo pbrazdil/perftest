@@ -10,7 +10,8 @@ module PerfTest
   require_relative '../config'
   require_relative 'perftest/input_options'
   require_relative 'perftest/openshift'
-  require_relative 'perftest/engine/ab'
+  require_relative 'perftest/engine/apache_bench'
+  require_relative 'perftest/log_content'
   require_relative 'perftest/test_log'
   require_relative 'action_controller'
 
@@ -18,11 +19,10 @@ module PerfTest
   class Application
 
     def initialize(argv)
-
       @options = InputOptions::Parser.parse(argv)
-      @options.command = "preftest #{argv.join(' ')}"
+      @options.command = "perftest #{argv.join(' ')}"
 
-      @test_engine = @options.engine == 'ab' ? Engine::Ab : Engine::Siege
+      @test_engine = Engine::ApacheBench if @options.engine == 'ab'
       @controller = ActionController.new(@options, @test_engine)
 
       begin

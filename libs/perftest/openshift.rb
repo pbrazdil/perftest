@@ -1,5 +1,5 @@
 module PerfTest
-  module Openshift
+  module OpenShift
     extend self
 
     def change_server(name)
@@ -19,7 +19,7 @@ module PerfTest
     end
 
     def ps_aux_output
-      %x[ rhc ssh #{PerfTest::Config::OPENSHIFT_APP_NAME} 'ps aux']
+      %x[ rhc ssh #{PerfTest::Config::OPENSHIFT_APP_NAME} --gears 'ps aux']
     end
   end
 end
